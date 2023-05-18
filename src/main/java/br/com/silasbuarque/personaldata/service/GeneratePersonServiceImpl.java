@@ -24,13 +24,13 @@ public class GeneratePersonServiceImpl implements GeneratePersonService{
         personReturn.setCpf(getCpf());
         personReturn.setDateOfBirth(getDateOfBirth());
         personReturn.setPhoneNumber(getPhoneNumber());
-        personReturn.setEmail(getEmail());
+        personReturn.setEmail(getEmail(personReturn.getName()));
 
         return personReturn;
     }
 
     public String getName() {
-        return faker.name().fullName();
+        return faker.name().name();
     }
 
     public String getCpf() {
@@ -40,12 +40,12 @@ public class GeneratePersonServiceImpl implements GeneratePersonService{
 
     public String getDateOfBirth() {
         LocalDate birthday = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return birthday.format(formatter);
     }
 
-    public String getEmail() {
-        return faker.internet().emailAddress();
+    public String getEmail(String name) {
+        return faker.internet().emailAddress(name);
     }
 
     public String getPhoneNumber() {
