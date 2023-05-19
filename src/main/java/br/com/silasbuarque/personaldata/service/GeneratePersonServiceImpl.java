@@ -16,11 +16,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.util.Random;
-
-import br.com.caelum.stella.ValidationMessage;
-import br.com.caelum.stella.validation.CPFValidator;
-import br.com.caelum.stella.validation.InvalidStateException;
 
 @Service
 public class GeneratePersonServiceImpl implements GeneratePersonService{
