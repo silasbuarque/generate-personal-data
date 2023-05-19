@@ -15,7 +15,7 @@ public class CPFGenerator {
         }
 
         digits[5] = personRequest.getSextoDigito(); // Fixa o sexto dígito como 8
-        digits[6] = personRequest.getSétimoDigito(); // Fixa o sétimo dígito como 6
+        digits[6] = personRequest.getSetimoDigito(); // Fixa o sétimo dígito como 6
 
         // Calcula o primeiro dígito verificador
         digits[9] = calculateVerifierDigit(digits, 10);

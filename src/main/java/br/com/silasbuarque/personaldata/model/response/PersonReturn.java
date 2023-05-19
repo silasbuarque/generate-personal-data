@@ -14,7 +14,8 @@ public class PersonReturn {
     private String dateOfBirth;
     private String phoneNumber;
     private String email;
-    private String address;
+    private Address address;
     private Bank bank;
+    private String plate;
 
 }

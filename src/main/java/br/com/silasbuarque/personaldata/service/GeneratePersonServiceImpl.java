@@ -1,10 +1,12 @@
 package br.com.silasbuarque.personaldata.service;
 
 import br.com.silasbuarque.personaldata.model.request.PersonRequest;
+import br.com.silasbuarque.personaldata.model.response.Address;
 import br.com.silasbuarque.personaldata.model.response.Bank;
 import br.com.silasbuarque.personaldata.model.response.PersonReturn;
 import br.com.silasbuarque.personaldata.utils.BankDataGenerator;
 import br.com.silasbuarque.personaldata.utils.CPFGenerator;
+import br.com.silasbuarque.personaldata.utils.PlateGenerate;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
@@ -45,7 +47,14 @@ public class GeneratePersonServiceImpl implements GeneratePersonService{
         String email = name.toLowerCase().replace(" ", "") + "@" + dominio;
         personReturn.setEmail(email);
 
-        personReturn.setAddress(faker.address().fullAddress());
+        Address address = new Address();
+        address.setStreetName(faker.address().streetName());
+        address.setStreetAddress(faker.address().streetAddress());
+        address.setCity(faker.address().city());
+        address.setState(faker.address().state());
+        address.setZipCode(faker.address().zipCode());
+        address.setCountry(faker.address().country());
+        personReturn.setAddress(address);
 
         Bank bank = new Bank();
         bank.setBankCode(BankDataGenerator.generateBankCode());
@@ -54,6 +63,8 @@ public class GeneratePersonServiceImpl implements GeneratePersonService{
         bank.setAgencyNumber(BankDataGenerator.generateAgencyNumber());
 
         personReturn.setBank(bank);
+
+        personReturn.setPlate(PlateGenerate.generatePlates());
 
         return personReturn;
     }

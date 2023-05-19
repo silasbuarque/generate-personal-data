@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class PersonRequest {
 
     private int sextoDigito;
-    private int sétimoDigito;
+    private int setimoDigito;
 
 }
