@@ -9,7 +9,6 @@ public class BankDataGenerator {
         Random random = new Random();
         StringBuilder accountNumber = new StringBuilder();
 
-        // Gera 6 dígitos aleatórios para o número da conta
         for (int i = 0; i < 6; i++) {
             int digit = random.nextInt(10);
             accountNumber.append(digit);
@@ -22,7 +21,6 @@ public class BankDataGenerator {
         Random random = new Random();
         StringBuilder agencyNumber = new StringBuilder();
 
-        // Gera 4 dígitos aleatórios para o número da agência
         for (int i = 0; i < 4; i++) {
             int digit = random.nextInt(10);
             agencyNumber.append(digit);

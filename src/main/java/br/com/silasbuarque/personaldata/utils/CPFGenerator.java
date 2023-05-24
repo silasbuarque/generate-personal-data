@@ -9,21 +9,17 @@ public class CPFGenerator {
         int[] digits = new int[11];
         Random random = new Random();
 
-        // Gera os 9 primeiros dígitos aleatórios
         for (int i = 0; i < 9; i++) {
             digits[i] = random.nextInt(10);
         }
 
-        digits[5] = personRequest.getSextoDigito(); // Fixa o sexto dígito como 8
-        digits[6] = personRequest.getSetimoDigito(); // Fixa o sétimo dígito como 6
+        digits[5] = personRequest.getSextoDigito();
+        digits[6] = personRequest.getSetimoDigito();
 
-        // Calcula o primeiro dígito verificador
         digits[9] = calculateVerifierDigit(digits, 10);
 
-        // Calcula o segundo dígito verificador
         digits[10] = calculateVerifierDigit(digits, 11);
 
-        // Formata o CPF no formato XXX.XXX.XXX-XX
         StringBuilder cpf = new StringBuilder();
         for (int i = 0; i < 11; i++) {
             if (i == 3 || i == 6) {
